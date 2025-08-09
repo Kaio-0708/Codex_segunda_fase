@@ -29,3 +29,6 @@
 1. **Design responsivo**: Adaptável a diferentes tamanhos de tela.
 2. **Acessibilidade**: Aplicar boas práticas para usuários com diferentes necessidades.
 3. **Modo escuro/claro**: Alternância entre temas.
+
+
+## Site: codex-segunda-fase.vercel.app

@@ -76,6 +76,10 @@ input:focus {
 }
 
 @media (max-width: 480px) {
+  header {
+    padding-top: 20px;
+  }
+  
   .form-login {
     padding: 20px;
     max-width: 90%;

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Pagina de login</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container criar-conta">
+            <form>
+                <h1>Crie sua conta</h1>
+                <div class="icons-redes">
+                    <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>Use o seu email para fazer o cadastro</span>
+                <input type="text" placeholder="Nome" id="nomeConta">
+                <input type="email" placeholder="Email" id="emailConta">
+                <input type="password" placeholder="Senha" id="senhaConta">
+                <button type="submit" onclick="criarConta(event)">Criar conta</button>
+            </form>
+        </div>
+        <div class="form-container log-in">
+            <form>
+                <h1>Log-in</h1>
+                <div class="icons-redes">
+                    <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>Use o nome do seu usuário para o log-in</span>
+                <input type="text" placeholder="Usuário" id = "nomeUsuario">
+                <input type="password" placeholder="Senha" id = "senhaUsuario">
+                <a href="#">Esqueceu sua senha?</a>
+                <button type="submit" onclick="logar(event)">Entrar</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bem vindo de volta!</h1>
+                    <p>Coloque suas informações pessoais para usar todas as funções do site</p>
+                    <button class = "hidden" id = "login">Entrar</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Olá</h1>
+                    <p>Registre suas informações pessoais para usar todas as funções do site</p>
+                    <button class = "hidden" id = "registrar">Criar conta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

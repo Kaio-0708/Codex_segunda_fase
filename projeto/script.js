@@ -1,6 +1,13 @@
+let trilho = document.getElementById('trilho');
+let body = document.querySelector('body');
 const container = document.getElementById('container');
 const registerBtn = document.getElementById('registrar');
 const loginBtn = document.getElementById('login');
+
+trilho.addEventListener('click', () =>{
+    trilho.classList.toggle('dark');
+    body.classList.toggle('dark');
+})
 
 registerBtn.addEventListener('click', () =>{
     container.classList.add("active");
@@ -39,6 +46,11 @@ function logar(event){
     var login = document.getElementById('nomeUsuario').value.trim();
     var senha = document.getElementById('senhaUsuario').value.trim();
 
+
+    if(!contas.has(login)){
+        alert("esse usuário não existe");
+        return;
+    }
     if(contas.has(login) && contas.get(login) === senha) {
         localStorage.setItem("nomeLogin", login);
         location.href = "home.html";
@@ -46,4 +58,3 @@ function logar(event){
             alert('usuario ou senha incorretos');
         }
     }
-

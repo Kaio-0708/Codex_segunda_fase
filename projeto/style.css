@@ -20,7 +20,7 @@ body{
 .trilho{
     width: 80px;
     height: 30px;
-    margin: 0;
+    margin: 5px;
     background-color: gray;
     border-radius: 150px;
     position: relative;
@@ -266,3 +266,4 @@ body.dark .container a{
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+

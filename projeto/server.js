@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.post("/criar-conta", async (req, res) => {
+app.post("/api/criar-conta", async (req, res) => {
   const { nome, email, senha } = req.body;
 
   if (!nome || !email || !senha) {
@@ -41,7 +41,7 @@ app.post("/criar-conta", async (req, res) => {
   }
 });
 
-app.post("/login", async (req, res) => {
+app.post("/api/login", async (req, res) => {
   const { nome, senha } = req.body;
 
   try {
@@ -59,7 +59,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.put("/editar/:nome", async (req, res) => {
+app.put("/api/editar/:nome", async (req, res) => {
   const { nome } = req.params;
   const { email, senha } = req.body;
 

@@ -27,14 +27,16 @@ app.post("/api/criar-conta", async (req, res) => {
   if (!nome || !email || !senha) {
     return res.json({ sucesso: false, mensagem: "Preencha todos os campos" });
   }
-
+  console.log("01");
   try {
     const existe = await usuariosCollection.findOne({ nome });
-    if (existe) {
+    if (existe)  {
+      console.log("02");
       return res.json({ sucesso: false, mensagem: "Nome já existe" });
     }
-
+    console.log("Erro ao conectar.")
     await usuariosCollection.insertOne({ nome, email, senha });
+    console.log("03");
     res.json({ sucesso: true, mensagem: "Conta criada com sucesso!" });
   } catch (err) {
     res.json({ sucesso: false, mensagem: "Erro ao criar conta" });

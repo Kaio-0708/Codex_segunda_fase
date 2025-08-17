@@ -119,8 +119,7 @@ async function criarConta(event) {
     const res = await fetch("/api/criar-conta", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nome, email, senha }),
-      console.log(`Erro');
+      body: JSON.stringify({ nome, email, senha })
     });
     const data = await res.json();
     mostrarToast(data.mensagem, data.sucesso ? "sucesso" : "erro");

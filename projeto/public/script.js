@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const nomeEdicao = params.get("editar");
   const emailEdicao = params.get("email");
 
-  // -----------------------------
   if (nomeEdicao) {
     const formTitle = document.getElementById("formTitle");
     const submitBtn = document.getElementById("submitBtn");
@@ -124,8 +123,10 @@ async function criarConta(event) {
     });
     const data = await res.json();
     mostrarToast(data.mensagem, data.sucesso ? "sucesso" : "erro");
+    console.log(`Erro')
   } catch (err) {
     mostrarToast("Erro ao criar conta", "erro");
+    console.log(`Erro`)
   }
 }
 

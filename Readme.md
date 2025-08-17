@@ -111,19 +111,20 @@ http://localhost:3000
 
 #### Gledson Perdival
 
-- Utilização do html, css e javaScript para a criação da página inicial de login ,incluindo a adição do modo escuro, e utilização do html para criação dos botões da segunda página, pagina da saudação.
+- Utilização do html, css e javaScript para a criação da página inicial de login ,incluindo a adição do modo escuro, e utilização do html para criação dos botões da segunda página, além da responsividade do projeto. Auxilio na implementação de backend e banco de dados. 
 
 #### Lucas Rafael
 
-- Utilização do css para criação do desing da segunda página, pagina da saudação com os botões de editar e voltar.
+- Utilização do css para criação do desing da segunda página, pagina da saudação com os botões de editar e voltar, assim como responsividade do projeto. Auxilio na implementação de backend e banco de dados. 
 
 ### BackEnd
 
 #### Kaio Victor
-- Implementação do banco de dados MongoDb, conexão com a interface web . implementação do registro e login do usuário, utilização do Toastify.js para mostrar mensagens ao usuário (sucesso ou erro), implementação das configurações para hospedagem do site no vercel.
+- Implementação do banco de dados MongoDb, conexão com a interface web. implementação do registro e login do usuário, utilização do Toastify.js para mostrar mensagens ao usuário (sucesso ou erro), implementação das configurações para hospedagem do site no vercel.
 
 #### Antonio Farias
-- implementação da edição de conta do usuário na interface web, com envio para o backend. Criação do README.
+- implementação da edição de conta do usuário na interface web, com envio para o backend. Criação do README. Auxilio na implementação de backend e banco de dados. 
+
 
 ---
 

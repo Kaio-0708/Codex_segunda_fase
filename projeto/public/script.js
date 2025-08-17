@@ -120,13 +120,12 @@ async function criarConta(event) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nome, email, senha }),
+      console.log(`Erro');
     });
     const data = await res.json();
     mostrarToast(data.mensagem, data.sucesso ? "sucesso" : "erro");
-    console.log(`Erro')
   } catch (err) {
     mostrarToast("Erro ao criar conta", "erro");
-    console.log(`Erro`)
   }
 }
 

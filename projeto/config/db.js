@@ -7,27 +7,23 @@ const dbName = process.env.MONGO_DB;
 
 const uri = `mongodb+srv://${user}:${password}@cluster0.aa30dnf.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=Cluster0`;
 
-let client;
-let clientPromise;
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
 
-if (!global._mongoClientPromise) {
-  client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    },
-  });
-  clientPromise = client.connect();
-  global._mongoClientPromise = clientPromise;
-} else {
-  clientPromise = global._mongoClientPromise;
+async function connect() {
+  try {
+    await client.connect();
+    console.log("MongoDB Atlas conectado!");
+    const db = client.db(dbName);
+    return db;
+  } catch (err) {
+    console.error("Erro ao conectar:", err);
+  }
 }
 
-async function getCollection() {
-  const client = await clientPromise;
-  const db = client.db(dbName);
-  return db.collection("usuarios");
-}
-
-module.exports = getCollection;
+module.exports = connect;

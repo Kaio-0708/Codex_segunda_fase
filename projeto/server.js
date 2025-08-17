@@ -1,10 +1,10 @@
 const express = require("express");
 const path = require("path");
-const connect = require("./db");
+const connect = require("./config/db");
 const app = express();
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "/")));
+app.use(express.static(path.join(__dirname, "public")));
 
 let usuariosCollection;
 
@@ -18,7 +18,7 @@ connect()
   });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.post("/criar-conta", async (req, res) => {

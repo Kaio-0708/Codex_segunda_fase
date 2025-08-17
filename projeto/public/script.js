@@ -23,8 +23,59 @@ document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const nomeEdicao = params.get("editar");
   const emailEdicao = params.get("email");
+	
+  if (nomeEdicao) {
+    const formTitle = document.getElementById("formTitle");
+    const submitBtn = document.getElementById("submitBtn");
+    const nomeInput = document.getElementById("nomeConta");
+    const emailInput = document.getElementById("emailConta");
+    const senhaInput = document.getElementById("senhaConta");
 
-  // parte de edição
+  
+    formTitle.innerText = "Edite sua conta";
+    submitBtn.innerText = "Salvar Alterações";
+
+    container.classList.add("active");
+
+   
+    nomeInput.value = nomeEdicao;
+    nomeInput.readOnly = true;
+    emailInput.value = emailEdicao || "";
+    senhaInput.value = "";
+
+    
+    submitBtn.replaceWith(submitBtn.cloneNode(true));
+    const novoSubmitBtn = document.getElementById("submitBtn");
+
+    novoSubmitBtn.addEventListener("click", async (event) => {
+      event.preventDefault();
+      const email = emailInput.value.trim();
+      const senha = senhaInput.value.trim();
+
+      if (!email || !senha) {
+        mostrarToast("Preencha todos os campos", "erro");
+        return;
+      }
+
+      try {
+        const res = await fetch(`/editar/${nomeEdicao}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, senha }),
+        });
+        const data = await res.json();
+        mostrarToast(data.mensagem, data.sucesso ? "sucesso" : "erro");
+
+        if (data.sucesso) {
+          setTimeout(() => {
+            window.location.href = `home.html?nome=${nomeEdicao}&email=${email}`;
+          }, 1500);
+        }
+      } catch (err) {
+        mostrarToast("Erro ao atualizar dados", "erro");
+      }
+    });
+  }
 
   if (window.location.pathname.endsWith("home.html")) {
     const paramsHome = new URLSearchParams(window.location.search);

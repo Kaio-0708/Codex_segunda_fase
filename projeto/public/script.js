@@ -116,12 +116,12 @@ async function criarConta(event) {
   }
 
   try {
-    console.log("05");
     const res = await fetch("/api/criar-conta", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nome, email, senha })
     });
+    console.log("05", res);
     const data = await res.json();
     mostrarToast(data.mensagem, data.sucesso ? "sucesso" : "erro");
   } catch (err) {

@@ -31,4 +31,4 @@
 3. **Modo escuro/claro**: Alternância entre temas.
 
 
-## Site: [codex-segunda-fase.vercel.app](https://codex-segunda-fase.vercel.app/)
+## Site: [[codex-segunda-fase.vercel.app](https://codex-segunda-fase.vercel.app/](https://codex-segunda-fase.vercel.app/))

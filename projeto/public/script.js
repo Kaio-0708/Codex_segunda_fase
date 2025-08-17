@@ -116,6 +116,7 @@ async function criarConta(event) {
   }
 
   try {
+    console.log("05");
     const res = await fetch("/api/criar-conta", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

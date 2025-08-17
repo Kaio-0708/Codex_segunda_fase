@@ -16,6 +16,10 @@
       "dest": "projeto/server.js"
     },
     {
+      "src": "/api/criar-conta",
+      "dest": "projeto/server.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "projeto/public/$1"
     }

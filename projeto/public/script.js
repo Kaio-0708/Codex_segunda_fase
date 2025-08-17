@@ -1,61 +1,102 @@
-let trilho = document.getElementById("trilho");
-let body = document.querySelector("body");
-const container = document.getElementById("container");
-const registerBtn = document.getElementById("registrar");
-const loginBtn = document.getElementById("login");
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("container");
+  const registerBtn = document.getElementById("registrar");
+  const loginBtn = document.getElementById("login");
+  const trilho = document.getElementById("trilho");
+  const body = document.querySelector("body");
 
-trilho.addEventListener("click", () => {
-  trilho.classList.toggle("dark");
-  body.classList.toggle("dark");
+  trilho?.addEventListener("click", () => {
+    trilho.classList.toggle("dark");
+    body.classList.toggle("dark");
+  });
+
+  registerBtn?.addEventListener("click", () =>
+    container.classList.add("active")
+  );
+  loginBtn?.addEventListener("click", () =>
+    container.classList.remove("active")
+  );
+
+  const criarContaForm = document.getElementById("criarContaForm");
+  criarContaForm?.addEventListener("submit", criarConta);
+
+  const params = new URLSearchParams(window.location.search);
+  const nomeEdicao = params.get("editar");
+  const emailEdicao = params.get("email");
+
+  // parte de edição
+
+  if (window.location.pathname.endsWith("home.html")) {
+    const paramsHome = new URLSearchParams(window.location.search);
+    const nome = paramsHome.get("nome");
+    const email = paramsHome.get("email");
+
+    if (nome && email) {
+      document.getElementById(
+        "mensagemLogin"
+      ).innerText = `Seja bem-vindo, ${nome}!`;
+
+      document.getElementById("sairBtn").addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+
+      document.getElementById("editarBtn").addEventListener("click", () => {
+        window.location.href = `index.html?editar=${nome}&email=${email}`;
+      });
+    }
+  }
 });
 
-registerBtn.addEventListener("click", () => {
-  container.classList.add("active");
-});
-
-loginBtn.addEventListener("click", () => {
-  container.classList.remove("active");
-});
-
-var contas = new Map();
-
-function criarConta(event) {
+async function criarConta(event) {
   event.preventDefault();
-  var nomeConta = document.getElementById("nomeConta").value.trim();
-  var email = document.getElementById("emailConta").value.trim();
-  var senhaConta = document.getElementById("senhaConta").value.trim();
+  const nome = document.getElementById("nomeConta").value.trim();
+  const email = document.getElementById("emailConta").value.trim();
+  const senha = document.getElementById("senhaConta").value.trim();
 
-  if (contas.has(nomeConta)) {
-    mostrarToast("Um usuário já possui esse nome", "erro");
+  if (!nome || !email || !senha) {
+    mostrarToast("Preencha todos os campos", "erro");
     return;
   }
 
-  if (!nomeConta || !email || !senhaConta) {
-    mostrarToast(
-      "Preencha todos os campos para poder criar a sua conta",
-      "erro"
-    );
-    return;
+  try {
+    const res = await fetch("/criar-conta", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nome, email, senha }),
+    });
+    const data = await res.json();
+    mostrarToast(data.mensagem, data.sucesso ? "sucesso" : "erro");
+  } catch (err) {
+    mostrarToast("Erro ao criar conta", "erro");
   }
-
-  contas.set(nomeConta, senhaConta);
-  mostrarToast("Conta criada com sucesso! Agora faça login", "sucesso");
 }
 
-function logar(event) {
+async function logar(event) {
   event.preventDefault();
-  var login = document.getElementById("nomeUsuario").value.trim();
-  var senha = document.getElementById("senhaUsuario").value.trim();
+  const nome = document.getElementById("nomeUsuario").value.trim();
+  const senha = document.getElementById("senhaUsuario").value.trim();
 
-  if (!contas.has(login)) {
-    mostrarToast("Esse usuário não existe", "erro");
+  if (!nome || !senha) {
+    mostrarToast("Preencha todos os campos", "erro");
     return;
   }
-  if (contas.has(login) && contas.get(login) === senha) {
-    localStorage.setItem("nomeLogin", login);
-    location.href = "home.html";
-  } else {
-    mostrarToast("Usuário ou senha incorretos", "erro");
+
+  try {
+    const res = await fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nome, senha }),
+    });
+    const data = await res.json();
+
+    if (data.sucesso) {
+      const email = data.usuario.email;
+      window.location.href = `home.html?nome=${nome}&email=${email}`;
+    } else {
+      mostrarToast(data.mensagem, "erro");
+    }
+  } catch (err) {
+    mostrarToast("Erro ao logar", "erro");
   }
 }
 

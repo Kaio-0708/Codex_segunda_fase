@@ -5,12 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const trilho = document.getElementById("trilho");
   const body = document.querySelector("body");
 
-
   trilho?.addEventListener("click", () => {
     trilho.classList.toggle("dark");
     body.classList.toggle("dark");
   });
-
 
   registerBtn?.addEventListener("click", () =>
     container.classList.add("active")
@@ -19,10 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     container.classList.remove("active")
   );
 
-
   const criarContaForm = document.getElementById("criarContaForm");
   criarContaForm?.addEventListener("submit", criarConta);
-
 
   const params = new URLSearchParams(window.location.search);
   const nomeEdicao = params.get("editar");
@@ -34,20 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const nomeInput = document.getElementById("nomeConta");
     const emailInput = document.getElementById("emailConta");
     const senhaInput = document.getElementById("senhaConta");
-
   
     formTitle.innerText = "Edite sua conta";
     submitBtn.innerText = "Salvar Alterações";
 
     container.classList.add("active");
 
-   
     nomeInput.value = nomeEdicao;
     nomeInput.readOnly = true;
     emailInput.value = emailEdicao || "";
     senhaInput.value = "";
 
-    
     submitBtn.replaceWith(submitBtn.cloneNode(true));
     const novoSubmitBtn = document.getElementById("submitBtn");
 
@@ -81,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
   if (window.location.pathname.endsWith("home.html")) {
     const paramsHome = new URLSearchParams(window.location.search);
     const nome = paramsHome.get("nome");
@@ -102,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-
 
 async function criarConta(event) {
   event.preventDefault();
@@ -128,7 +119,6 @@ async function criarConta(event) {
     mostrarToast("Erro ao criar conta", "erro");
   }
 }
-
 
 async function logar(event) {
   event.preventDefault();

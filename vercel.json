@@ -4,6 +4,9 @@
     { "src": "server.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "server.js" }
+    { "src": "/criar-conta", "dest": "/server.js" },
+    { "src": "/login", "dest": "/server.js" },
+    { "src": "/editar/(.*)", "dest": "/server.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }

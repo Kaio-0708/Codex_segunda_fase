@@ -106,7 +106,7 @@ http://localhost:3000
 
 #### Gledson Perdival
 
-- Utilização do html, css e javaScript para a criação da página inicial de login ,incluindo a adição do modo escuro, e utilização do html para criação dos botões da segunda página, além da responsividade do projeto. Auxilio na implementação de backend e banco de dados. 
+- Utilização do html, css e javaScript para a criação da página inicial de login, incluindo a adição do modo escuro, e utilização do html para criação da segunda página, além da responsividade do projeto. Auxilio na implementação de backend e banco de dados. 
 
 #### Lucas Rafael
 

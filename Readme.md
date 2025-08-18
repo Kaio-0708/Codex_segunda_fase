@@ -111,12 +111,11 @@ http://localhost:3000
 ### BackEnd
 
 #### Kaio Victor
-- Implementação do banco de dados MongoDb, conexão com a interface web. implementação do registro e login do usuário, utilização do Toastify.js para mostrar mensagens ao usuário (sucesso ou erro), implementação das configurações para hospedagem do site no vercel.
-
+- Implementação do banco de dados MongoDb, conexão com a interface web, implementação do backend e adição do registro e login do usuário, utilização do Toastify.js para mostrar mensagens ao usuário (sucesso ou erro).
+  
 #### Antonio Farias
 - implementação da edição de conta do usuário na interface web, com envio para o backend. Criação do README. Auxilio na implementação de backend e banco de dados. 
 
 
 ---
 
-## Site: https://codex-segunda-fase.vercel.app/

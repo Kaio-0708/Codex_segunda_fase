@@ -117,7 +117,7 @@ async function criarConta(event) {
   }
 
   try {
-    const res = await fetch("/criar-conta", {
+    const res = await fetch("/api/criar-conta", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nome, email, senha }),
@@ -141,7 +141,7 @@ async function logar(event) {
   }
 
   try {
-    const res = await fetch("/login", {
+    const res = await fetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nome, senha }),

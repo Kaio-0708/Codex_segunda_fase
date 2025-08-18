@@ -67,6 +67,7 @@
 ```bash
    git clone https://github.com/Kaio-0708/Codex_segunda_fase.git
    cd Codex_segunda_fase
+   cd projeto
 ```
 ### 2. Instale as dependências
 
@@ -77,22 +78,12 @@
 ### 3. Configure as variáveis de ambiente
 
 - Crie um arquivo ```.env``` na raiz do projeto.
-- Adicione sua string de conexão com o MongoDB
-
-```env
-   MONGO_URI=mongodb://localhost:27017/nomedobanco
-```
+- Adicione a variável de ambiente de MONGO_USER, MONGO_PASSWORD, MONGO_DB, PORT.
 
 ### 4. Execute o servidor em modo de desenvolvimento
 
 ```
    npm run dev
-```
-
-- Ou, para rodar em modo padrão:
-
-```
-   npm start
 ```
 
 ### 5. Acesse a aplicação no navegador

@@ -78,8 +78,7 @@
 ### 3. Configure as variáveis de ambiente
 
 - Crie um arquivo ```.env``` na raiz do projeto.
-- Adicione a variável de ambiente de MONGO_USER, MONGO_PASSWORD, MONGO_DB, PORT.
-Variáveis para cadastrar no (.env):
+- Variáveis para cadastrar no (.env):
 MONGO_USER=kaiovitor0707
 MONGO_PASSWORD=DtjRuQMesbMJngkF
 MONGO_DB=Login

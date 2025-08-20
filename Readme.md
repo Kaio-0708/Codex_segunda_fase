@@ -79,11 +79,13 @@
 
 - Crie um arquivo ```.env``` na raiz do projeto.
 - Variáveis para cadastrar no (.env):
-MONGO_USER=kaiovitor0707
-MONGO_PASSWORD=DtjRuQMesbMJngkF
-MONGO_DB=Login
+MONGO_USER= X
+MONGO_PASSWORD= X
+MONGO_DB= X
 PORT=3000
 
+- O "X" é seus dados sigilosos conforme sua configuração no MongoDB.
+  
 ### 4. Execute o servidor em modo de desenvolvimento
 
 ```
